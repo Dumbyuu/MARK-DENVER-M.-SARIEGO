@@ -1,0 +1,30 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h2>Workout on {{ Workout.workout_date }}</h2>
+    </div>
+    <div class="card-body">
+        <p><strong>Duration:</strong> {{ Workout.duration_min }} minutes</p>
+        <p><strong>Calories Burned:</strong> {{ Workout.calories_burned }} kcal</p>
+
+        <hr>
+        <h4>Exercises Performed</h4>
+        <ul class="list-group">
+            {% for log in Workout.exercise_logs.all %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span><strong>{{ log.exercise.name }}</strong></span>
+                    <span>{{ log.sets }} sets x {{ log.reps }} reps @ {{ log.weight }}kg</span>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No exercises logged for this workout.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'Workout_update' Workout.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'Workout' %}" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+{% endblock %}

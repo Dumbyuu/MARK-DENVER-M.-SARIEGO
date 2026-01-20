@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <h1 class="display-4 border-bottom pb-3">About DAY 1 - Personal Fitness Tracker</h1>
+            <p class="lead mt-4">
+                DAY 1 - Personal Fitness Tracker is a dedicated fitness tracking application designed to help you organize your training
+                data, visualize your progress, and stay committed to your health goals.
+            </p>
+
+            <h3 class="mt-5">Key Features</h3>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>Workout Logging:</strong> Record your duration, date, and calories burned.</li>
+                <li class="list-group-item"><strong>Exercise Tracking:</strong> Log specific sets, reps, and weights for every movement.</li>
+                <li class="list-group-item"><strong>Category Management:</strong> Organize exercises by muscle groups like Chest, Back, or Legs.</li>
+                <li class="list-group-item"><strong>Personal History:</strong> Access a detailed history of your past sessions to track strength gains.</li>
+            </ul>
+            <div class="mt-5 text-center">
+                <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

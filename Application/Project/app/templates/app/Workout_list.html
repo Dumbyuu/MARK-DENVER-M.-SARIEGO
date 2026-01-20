@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>My Workouts</h1>
+        <a href="{% url 'Workout_create' %}" class="btn btn-primary">+ Log New Workout</a>
+    </div>
+
+    <div class="row">
+        {% for workout in workouts %}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ workout.workout_date }}</h5>
+                    <p class="card-text">
+                        <strong>Duration:</strong> {{ workout.duration_min }} mins<br>
+                        <strong>Calories:</strong> {{ workout.calories_burned }} kcal
+                    </p>
+                    <div class="btn-group">
+                        <a href="{% url 'Workout_detail' workout.pk %}" class="btn btn-sm btn-outline-info">View</a>
+                        <a href="{% url 'Workout_update' workout.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        <a href="{% url 'Workout_delete' workout.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="alert alert-warning">No workouts recorded yet. Start training!</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

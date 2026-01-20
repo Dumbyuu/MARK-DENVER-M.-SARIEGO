@@ -1,0 +1,44 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm border">
+    <div class="container-fluid py-5 text-center">
+        <h1 class="display-5 fw-bold text-primary">Welcome to DAY 1 - Personal Fitness Tracker</h1>
+        <p class="col-md-12 fs-4">Track your gains, monitor your progress, and stay consistent.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'Workout_create' %}" class="btn btn-primary btn-lg px-4 gap-3">Log a Workout</a>
+            <a href="{% url 'Workout' %}" class="btn btn-outline-secondary btn-lg px-4">View History</a>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center">
+    <div class="col-md-4">
+        <div class="card border-info mb-3">
+            <div class="card-header bg-info text-white">Focus</div>
+            <div class="card-body">
+                <h5 class="card-title">Consistency</h5>
+                <p class="card-text">Every workout counts. View your log to see how far you've come.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-success mb-3">
+            <div class="card-header bg-success text-white">Latest Activity</div>
+            <div class="card-body">
+                <h5 class="card-title">Ready to Train?</h5>
+                <p class="card-text">Don't forget to log your sets and reps to track strength gains.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-warning mb-3">
+            <div class="card-header bg-warning text-dark">About</div>
+            <div class="card-body">
+                <h5 class="card-title">Learn More</h5>
+                <p class="card-text">Check out the about page to see the features of this application.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
